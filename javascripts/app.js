@@ -39,7 +39,7 @@ jQuery(document).foundation();
   "use strict";
   $(document).ready(function() {
 
-    $('video').not("#videoslide").each(function() {
+    $('video').each(function() {
       this.muted = true;
     });
 
