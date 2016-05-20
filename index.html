@@ -135,7 +135,9 @@ milestones:
         {% elsif slide.type == 'video' %}
           <li class='frame {{style}} {{ slide.klass }}'>
             <div class='bg'>
-              <video id="video" no-controls autoplay loop style="width:100%; height:100%" src="{{ slide.bg }}"></video>
+              <video id="video" no-controls autoplay loop style="width:100%; height:100%">
+                <source src="{{ slide.bg }}" />
+              </video>
             </div>
             <div class='small-title {{ slide.small_title.klass }}'>
               <div class='row'>
