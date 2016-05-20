@@ -3826,3 +3826,24 @@ body {
     display: none;
   }
 }
+
+
+/* Custom styles begin here */
+
+.centerBox {
+  height: 100%;
+  background-color: gray;
+  float: left;
+}
+
+.leftBox {
+  height: 100%;
+  background-color: green;
+  float: left;
+}
+
+.rightBox {
+  height: 100%;
+  background-color: red;
+  float: right;
+}
