@@ -1,0 +1,33 @@
+---
+layout: blog
+title: Blog
+section_id: blog
+---
+
+
+{% for post in paginator.posts %}
+  <div class='big mod modBlogPost'>
+    <div class='images'>
+      {% for image in post.images %}
+        <div class='image'><img alt="" src="{{site.baseurl}}/{{image}}" /></div>
+      {% endfor %}
+    </div>
+    <div class='content'>
+      <p class='info'>
+        <span>{{post.date | date: "%B %d, %Y" }}</span>
+        /
+        <span>
+          by {{post.author}}
+        </span>
+        /
+        <span>
+          <a href="{{site.baseurl}}{{post.url}}#disqus_thread">0 comments</a>
+        </span>
+      </p>
+      <h3><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></h3>
+      <p>{{post.excerpt}}</p>
+      <div class='spacing'></div>
+      <a class="button small" href="{{site.baseurl}}{{post.url}}">Read more</a>
+    </div>
+  </div>
+{% endfor %}
