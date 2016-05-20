@@ -3829,10 +3829,13 @@ body {
 
 
 /* Custom styles begin here */
+.rowBox {
+  height: 100%;
+  width: 100%;
+}
 
 .centerBox {
   height: 100%;
-  background-color: gray;
   float: left;
 }
 
