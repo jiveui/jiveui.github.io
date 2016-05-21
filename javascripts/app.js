@@ -39,9 +39,9 @@ jQuery(document).foundation();
   "use strict";
   $(document).ready(function() {
 
-    /*$('video').each(function() {
+    $('video').not(".videoslide").each(function() {
       this.muted = true;
-    });*/
+    });
 
     $('.fadeinleft, .fadeinright, .fadein, .popin').appear(function() {
       var delay = $(this).data('delay');
