@@ -185,10 +185,10 @@ jQuery(document).foundation();
     // stop video
     $("a[class^='sequence-'").click(function () {
       console.log("clicked");
-      $("li.animate-out").find("video").each(function() {
+      $("li.animate-in").find("video").each(function() {
         this.pause();
       });
-      $("li.animate-in").find("video").each(function() {
+      $("li.animate-out").find("video").each(function() {
         this.play();
       });
     });
