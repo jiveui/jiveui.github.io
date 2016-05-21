@@ -39,7 +39,7 @@ jQuery(document).foundation();
   "use strict";
   $(document).ready(function() {
 
-    $('video').each(function() {
+    $('video').not(".videoslide").each(function() {
       this.muted = true;
     });
 
@@ -182,6 +182,16 @@ jQuery(document).foundation();
 
     }
 
+    // stop video
+    $("a[class^='sequence-'").click(function () {
+      console.log("clicked");
+      $("li.animate-in").find("video").each(function() {
+        this.pause();
+      });
+      $("li.animate-out").find("video").each(function() {
+        this.play();
+      });
+    });
 
   });
 })(jQuery);
