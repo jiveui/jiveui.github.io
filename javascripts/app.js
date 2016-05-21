@@ -182,6 +182,16 @@ jQuery(document).foundation();
 
     }
 
+    // stop video
+    $("a[class^='sequence-'").click(function () {
+      console.log("clicked");
+      $("video[class*='animate-out']").each(function() {
+        this.pause();
+      });
+      $("video[class*='animate-in']").each(function() {
+        this.play();
+      });
+    });
 
   });
 })(jQuery);
