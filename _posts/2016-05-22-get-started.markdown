@@ -2,7 +2,7 @@
 layout: post
 title:  "Get started with Jive"
 date:   2016-05-22 00:00:00
-images: images/@stock/blog-2.jpg
+images: images/launch1.jpg
 excerpt:
     How to install and use Jive command line tool
 categories: install download

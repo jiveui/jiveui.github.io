@@ -11,23 +11,24 @@
     klass: bottom-to-top
     items:
       - klass: boxed
-        text: Learn More
-        link_to: http://themeforest.net/user/honryou/portfolio?ref=honryou
+        text: Get started
+        link_to: /install/download/2016/05/22/get-started.html
+      - text: Github
+        klass: boxed
+        link_to: http://github.com/jiveui/jive
 - bg: images/slides/1.jpg
   type: image
   small_title:
     klass: bottom-to-top
-    text: Take a look at a Jive use case
+    text: A Jive use case
   title:
     klass: bottom-to-top
     text: Maintenance app
   buttons:
     klass: bottom-to-top
     items:
-      - text: Get started
-        link_to: /get-started.html
-      - text: Github
-        link_to: http://github.com/jiveui/jive
+      - text: Take a look
+        link_to: http://themeforest.net/user/honryou/portfolio?ref=honryou
 # - bg: images/slides/DSC_0032.jpg
 #   type: image
 #   klass: centered-text
