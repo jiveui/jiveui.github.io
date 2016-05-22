@@ -207,10 +207,10 @@ jQuery(document).foundation();
 
     $("#mute").click(function() {
       if ($(".videoslide").prop("muted")) {
-        $("#mute").removeClass("fa-volume-up").addClass("fa-volume-off");
+        $("#mute").removeClass("fa-volume-off").addClass("fa-volume-up");
         $(".videoslide").prop("muted", false);
       } else {
-        $("#mute").removeClass("fa-volume-off").addClass("fa-volume-up");
+        $("#mute").removeClass("fa-volume-up").addClass("fa-volume-off");
         $(".videoslide").prop("muted", true);
       }
     });
