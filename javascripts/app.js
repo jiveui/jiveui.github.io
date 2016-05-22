@@ -43,6 +43,10 @@ jQuery(document).foundation();
       this.muted = true;
     });
 
+      $('.main-video video').each(function() {
+          this.muted = false;
+      });
+
     $('.fadeinleft, .fadeinright, .fadein, .popin').appear(function() {
       var delay = $(this).data('delay');
       var that = this;
