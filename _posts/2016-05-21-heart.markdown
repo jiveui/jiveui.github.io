@@ -8,6 +8,41 @@ excerpt:
 categories: tutorial SVG animation
 ---
 
-## Project structure
+Throughout this tutorial, we'll walk you through the creation of a basic Jive application with a bit of animation.
 
-##
+Here is the video demonstration how our app will work.
+
+{% youtube VvJks6XVjNc %}
+
+If you don't like to read you can download it from [jive-examples github repository](https://github.com/jiveui/jive-examples) and run it.
+
+If it's not enough let's go together.
+
+#### Project structure
+
+A Jive project is an [OpenFL](http://openfl.org) and [Haxe](http://haxe.org) project. So it must have a main class and project.xml as a project file.
+
+- [OpenFl project description](http://www.openfl.org/documentation/getting-started/your-first-project/);
+- [project.xml documentation](http://www.openfl.org/documentation/projects/project-files/xml-format/).
+
+Jive is based on:
+
+the [Model - View - ViewModel idea](https://en.wikipedia.org/wiki/Model–view–viewmodel).
+
+> MVVM facilitates a separation of development of the graphical user interface (a markup language or GUI code)
+> from development of the business logic (the data model).
+> The view model of MVVM is a value converter; meaning the view model is responsible for exposing (converting)
+> the data objects from the model in such a way objects are easily managed and presented.
+>
+> In this respect, the view model is more model than view, and handles most if not all of the view's display logic.
+
+and [the Data Binding](https://en.wikipedia.org/wiki/UI_data_binding). It's a way to implement a link between views and view models.
+
+
+##### View
+
+##### View Model
+
+#### SVG as a graphics definition
+
+#### Actuate to animate

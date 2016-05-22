@@ -17,6 +17,26 @@ Whole information here is about the next version.
 
 ## Install
 
+Requirements:
+
+- [Haxe Toolkit](http://haxe.org/download/)
+- [OpenFL](http://www.openfl.org/documentation/getting-started/installing-openfl/)
+- actuate
+- unifill
+- svg
+- bindx2
+- hml
+
+So after installing the Haxe Toolkit and the OpenFl it needs to run:
+
+{% highlight bash %}
+haxelib install actuate
+haxelib install unifill
+haxelib install svg
+haxelib install bindx2
+haxelib install hml
+{% endhighlight %}
+
 The next version is not in the lib.haxe.org. So it needs to clone it from github repository:
 
 {% highlight bash %}
