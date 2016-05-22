@@ -193,6 +193,28 @@ jQuery(document).foundation();
       });
     });
 
+    // Video controls
+    $("#video-controls").css("position", "absolute");
+    var videocontainer = $("#video-controls").parent();
+    var top = videocontainer.offset().top + 30;
+    var left = videocontainer.width() - $("#video-controls").width() - 70;
+    $("#video-controls").offset({ top: top, left: left });
+
+    if ($(".videoslide").attr("muted"))
+      $("#mute").removeClass("fa-volume-up").addClass("fa-volume-off");
+    else
+      $("#mute").removeClass("fa-volume-off").addClass("fa-volume-up");
+
+    $("#mute").click(function() {
+      if ($(".videoslide").attr("muted")) {
+        $("#mute").removeClass("fa-volume-up").addClass("fa-volume-off");
+        $(".videoslide").attr("muted", false);
+      } else {
+        $("#mute").removeClass("fa-volume-off").addClass("fa-volume-up");
+        $(".videoslide").attr("muted", true);
+      }
+    });
+
   });
 })(jQuery);
 (function($) {

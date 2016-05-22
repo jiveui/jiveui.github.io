@@ -3831,3 +3831,12 @@ body {
   background-image: url(../images/background.png);
   background-size: contain;
 }
+
+.videocontrols a {
+  color: #c71a5e !important;
+  font-size: 2.5em;
+}
+
+.videocontrols a:hover {
+  color: #333 !important;
+}
