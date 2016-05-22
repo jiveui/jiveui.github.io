@@ -43,10 +43,6 @@ jQuery(document).foundation();
       this.muted = true;
     });
 
-      $('.main-video video').each(function() {
-          this.muted = false;
-      });
-
     $('.fadeinleft, .fadeinright, .fadein, .popin').appear(function() {
       var delay = $(this).data('delay');
       var that = this;
@@ -187,7 +183,7 @@ jQuery(document).foundation();
     }
 
     // stop video
-    $("a[class^='sequence-'").click(function () {
+    $("a[class^='sequence-']").click(function () {
       $("li.animate-in").find("video").each(function() {
         this.pause();
       });
