@@ -3,10 +3,10 @@
   klass: videoslide
   small_title:
     klass: bottom-to-top
-    text: This is a creative theme that you'll
+    text: Build crossplatform<br/> native mobile apps with
   title:
     klass: bottom-to-top
-    text: VIDEO
+    text: Jive UI
   buttons:
     klass: bottom-to-top
     items:
@@ -17,10 +17,10 @@
   type: image
   small_title:
     klass: bottom-to-top
-    text: Jive like zombocat
+    text: Take a look at a Jive use case
   title:
     klass: bottom-to-top
-    text: JiveUI
+    text: Maintenance app
   buttons:
     klass: bottom-to-top
     items:
