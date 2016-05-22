@@ -39,7 +39,7 @@ jQuery(document).foundation();
   "use strict";
   $(document).ready(function() {
 
-    $('video').each(function() {
+    $('video').not(".videoslide").each(function() {
       this.muted = true;
     });
 
@@ -186,6 +186,38 @@ jQuery(document).foundation();
 
     }
 
+    // stop video
+    $("a[class^='sequence-'").click(function () {
+      $("li.animate-in").find("video").each(function() {
+        this.pause();
+      });
+      $("li.animate-out").find("video").each(function() {
+        this.play();
+      });
+    });
+
+    // Video controls
+    $("#video-controls").css("position", "absolute");
+    var videocontainer = $("#video-controls").parent();
+    var top = videocontainer.offset().top + 30;
+    var left = videocontainer.width() - $("#video-controls").width() - 70;
+    $("#video-controls").offset({ top: top, left: left });
+
+    // init default icon
+    if ($(".videoslide").prop("muted"))
+      $("#mute").removeClass("fa-volume-up").addClass("fa-volume-off");
+    else
+      $("#mute").removeClass("fa-volume-off").addClass("fa-volume-up");
+
+    $("#mute").click(function() {
+      if ($(".videoslide").prop("muted")) {
+        $("#mute").removeClass("fa-volume-off").addClass("fa-volume-up");
+        $(".videoslide").prop("muted", false);
+      } else {
+        $("#mute").removeClass("fa-volume-up").addClass("fa-volume-off");
+        $(".videoslide").prop("muted", true);
+      }
+    });
 
   });
 })(jQuery);

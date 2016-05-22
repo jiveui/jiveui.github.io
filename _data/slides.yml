@@ -1,12 +1,12 @@
 - bg: images/slides/jive-cases-1080-f.mp4
   type: video
-  klass: main-video
+  klass: videoslide
   small_title:
     klass: bottom-to-top
-    text: Build crossplatform<br/> native mobile apps with
+    text: This is a creative theme that you'll
   title:
     klass: bottom-to-top
-    text: Jive UI
+    text: VIDEO
   buttons:
     klass: bottom-to-top
     items:
@@ -17,10 +17,10 @@
   type: image
   small_title:
     klass: bottom-to-top
-    text: Take a look at a Jive use case
+    text: Jive like zombocat
   title:
     klass: bottom-to-top
-    text: Maintenance app
+    text: JiveUI
   buttons:
     klass: bottom-to-top
     items:
