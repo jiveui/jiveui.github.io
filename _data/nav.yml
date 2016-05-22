@@ -24,3 +24,6 @@
 - name: API
   path: api.html
   section_id: api
+- name: Get started
+  path: get-started.html
+  section_id: get-started

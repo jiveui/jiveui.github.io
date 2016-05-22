@@ -24,8 +24,10 @@
   buttons:
     klass: bottom-to-top
     items:
-      - text: Learn More
-        link_to: http://themeforest.net/user/honryou/portfolio?ref=honryou
+      - text: Get started
+        link_to: /get-started.html
+      - text: Github
+        link_to: http://github.com/jiveui/jive
 # - bg: images/slides/DSC_0032.jpg
 #   type: image
 #   klass: centered-text

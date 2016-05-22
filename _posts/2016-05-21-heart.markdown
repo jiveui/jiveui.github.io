@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Heart: the first Jive application"
+date:   2016-05-21 13:00:00
+images: images/@stock/blog-2.jpg
+excerpt:
+    How to create the first Jive application
+categories: tutorial SVG animation
+---
+

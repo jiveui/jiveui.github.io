@@ -9,6 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 
 paginate: 5
 paginate_path: "blog/page:num"
@@ -36,4 +37,4 @@ logos:
   light: "images/logo-light.png"
   dark: "images/logo-dark.png"
 
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, kramdown, rouge]
