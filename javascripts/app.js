@@ -183,7 +183,7 @@ jQuery(document).foundation();
     }
 
     // stop video
-    $("a[class^='sequence-'").click(function () {
+    $("a[class^='sequence-']").click(function () {
       $("li.animate-in").find("video").each(function() {
         this.pause();
       });
@@ -195,9 +195,13 @@ jQuery(document).foundation();
     // Video controls
     $("#video-controls").css("position", "absolute");
     var videocontainer = $("#video-controls").parent();
-    var top = videocontainer.offset().top + 30;
-    var left = videocontainer.width() - $("#video-controls").width() - 70;
-    $("#video-controls").offset({ top: top, left: left });
+    var setControlPosition = function() {
+      var top = videocontainer.offset().top + 30;
+      var left = videocontainer.width() - $("#video-controls").width() - 70;
+      $("#video-controls").offset({ top: top, left: left });
+    }
+    $(window).on('resize', setControlPosition);
+    setControlPosition();
 
     // init default icon
     if ($(".videoslide").prop("muted"))
