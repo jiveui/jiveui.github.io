@@ -6,8 +6,8 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 May 2016 14:56:29 +0700</pubDate>
-    <lastBuildDate>Mon, 23 May 2016 14:56:29 +0700</lastBuildDate>
+    <pubDate>Mon, 23 May 2016 15:10:26 +0700</pubDate>
+    <lastBuildDate>Mon, 23 May 2016 15:10:26 +0700</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -37,11 +37,15 @@
 
 &lt;p&gt;So after installing the Haxe Toolkit and the OpenFl it needs to run:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib install actuate
-haxelib install unifill
-haxelib install svg
-haxelib install bindx2
-haxelib install hml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib install actuate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib install unifill&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib install svg&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib install bindx2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib install hml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The next version is not in the lib.haxe.org. So it needs to clone it from github repository:&lt;/p&gt;
 
