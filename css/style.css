@@ -3840,3 +3840,7 @@ body {
 .videocontrols a:hover {
   color: #333 !important;
 }
+
+code table {
+    border: none;
+}

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Heart: the first Jive application"
+title:  "Tutorial: Heart application"
 date:   2016-05-21 13:00:00
 images: images/heart1.jpg
 excerpt:
@@ -14,9 +14,15 @@ Here is the video demonstration how our app will work.
 
 {% youtube VvJks6XVjNc %}
 
-If you don't like to read you can download it from [jive-examples github repository](https://github.com/jiveui/jive-examples) and run it.
+Download the source code from [jive-examples github repository](https://github.com/jiveui/jive-examples). And go to the heart directory.
 
-If it's not enough let's go together.
+The app can be run using the command line below.
+
+{% highlight bash %}
+haxelib run jive test [platform]
+{% endhighlight %}
+
+If it's not enough let's go together deeper.
 
 #### Project structure
 
@@ -24,6 +30,43 @@ A Jive project is an [OpenFL](http://openfl.org) and [Haxe](http://haxe.org) pro
 
 - [OpenFl project description](http://www.openfl.org/documentation/getting-started/your-first-project/);
 - [project.xml documentation](http://www.openfl.org/documentation/projects/project-files/xml-format/).
+
+To enable Jive library for the project we need a line below in *project.xml*
+
+{% highlight xml %}
+<haxelib name="jive"/>
+{% endhighlight %}
+
+#### Start point
+
+First of all our application needs a start point. It's the Application class.
+
+{% highlight java linenos %}
+package ;
+
+import view.MainWindow;
+import viewmodel.MainViewModel;
+import jive.*;
+
+class Application {
+    public function new() {
+        Jive.start();
+        var w: MainWindow = new MainWindow();
+        w.dataContext = new MainViewModel();
+        w.opened = true;
+    }
+}
+{% endhighlight %}
+
+The Application constructor only
+
+- initializes Jive;
+- creates and opens the main Jive window;
+- creates the main view model.
+
+Here we need to pause and have a bit of information about Model-View-ViewModel concept and how it works for Jive.
+
+#### MVVM idea
 
 Jive is based on:
 
@@ -38,11 +81,80 @@ the [Model - View - ViewModel idea](https://en.wikipedia.org/wiki/Modelâ€“viewâ€
 
 and [the Data Binding](https://en.wikipedia.org/wiki/UI_data_binding). It's a way to implement a link between views and view models.
 
+So for our app we need and it's enough:
 
-##### View
+- a main view; It contains all graphics and layout it.
+- a main view model. It handle the whole behavior (animation).
 
-##### View Model
+#### View: Component
 
-#### SVG as a graphics definition
+All views in Jive are [Components](/api/jive/Component.html). The important parts of Component's interface are below.
 
-#### Actuate to animate
+{% highlight java linenos %}
+class Component {
+    public var x: Metric;
+    public var y: Metric;
+    public var width: Metric;
+    public var height: Metric;
+    public var margin: MetricInsets;
+    public var parent: Container;
+}
+{% endhighlight %}
+
+#### View: Window
+
+As a main view we use [Window](/api/jive/Window.html).
+
+The window component is a root UI container for Jive application. We extend it to contain all our graphics.
+
+{% highlight xml linenos %}
+<?xml version="1.0" encoding="UTF-8"?>
+<Window
+        xmlns="jive"
+        xmlns:geom="jive.geom"
+        xmlns:haxe="http://haxe.org/"
+        width="{Binding windowWidth}"
+        height="{Binding windowHeight}">
+    <haxe:Implements>
+    <![CDATA[
+        jive.DataContextControllable<viewmodel.MainViewModel
+        >]]>
+    </haxe:Implements>
+
+    ...
+
+</Window>
+{% endhighlight %}
+
+
+#### View: Svg
+
+The graphics container in Jive is the Svg component:
+
+{% highlight java linenos %}
+class Svg extends Component {
+    public var content: String;
+}
+{% endhighlight %}
+
+The content property is the pure SVG content
+
+#### Coordinates and sizes: absolute, virtual, percent
+
+All coordinates and sizes of them have type **Metric**:
+
+{% highlight java linenos %}
+enum Metric {
+    absolute(value: Int);
+    virtual(value: Int);
+    percent(value: Float);
+    none;
+}
+{% endhighlight %}
+
+- *absolute* means that value is a number of pixels.
+- *virtual* means that value is a number of virtual pixels depending on the PPI of a display.
+- *percent* means that the real value of the size will be calculated basing on the parent size.
+
+
+#### ViewModel

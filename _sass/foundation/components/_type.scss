@@ -310,6 +310,7 @@ $align-class-breakpoints:
       border-style: $code-border-style;
       border-color: $code-border-color;
       padding: $code-padding;
+      display: block;
     }
 
     /* Lists */
