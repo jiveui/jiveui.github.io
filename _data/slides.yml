@@ -1,6 +1,5 @@
-- bg: images/slides/jive-cases-1080-f.mp4
-  type: video
-  klass: videoslide
+- bg: images/clover-bg.jpg
+  type: image
   small_title:
     klass: bottom-to-top
     text: Build crossplatform<br/> native mobile apps with
@@ -13,17 +12,17 @@
       - klass: boxed
         text: Get started
         link_to: /install/download/2016/05/22/get-started.html
-      - text: Github
+      - text: Video
         klass: boxed
-        link_to: http://github.com/jiveui/jive
-- bg: images/slides/1.jpg
+        link_to: /images/slides/jive-cases-1080-f.mp4
+- bg: images/maintenance-bg.jpg
   type: image
   small_title:
     klass: bottom-to-top
     text: A Jive use case
   title:
     klass: bottom-to-top
-    text: Maintenance app
+    text: Maintenance
   buttons:
     klass: bottom-to-top
     items:
