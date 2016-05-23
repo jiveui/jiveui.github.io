@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo Copy API...
-cp -r ../jive/docs/api/* ../jiveui.github.io-development/api/
+#echo Copy API...
+#cp -r ../jive/docs/api/* ../jiveui.github.io-development/api/
 
 echo Build site...
 jekyll build
