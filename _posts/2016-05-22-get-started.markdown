@@ -31,9 +31,17 @@ So after installing the Haxe Toolkit and the OpenFl it needs to run:
 
 {% highlight bash %}
 haxelib install actuate
+{% endhighlight %}
+{% highlight bash %}
 haxelib install unifill
+{% endhighlight %}
+{% highlight bash %}
 haxelib install svg
+{% endhighlight %}
+{% highlight bash %}
 haxelib install bindx2
+{% endhighlight %}
+{% highlight bash %}
 haxelib install hml
 {% endhighlight %}
 
