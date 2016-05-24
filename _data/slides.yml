@@ -27,7 +27,7 @@
     klass: bottom-to-top
     items:
       - text: Take a look
-        link_to: http://themeforest.net/user/honryou/portfolio?ref=honryou
+        link_to: /usecase/ios/android/2016/05/01/maintenance.html
 # - bg: images/slides/DSC_0032.jpg
 #   type: image
 #   klass: centered-text
