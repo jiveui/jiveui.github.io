@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tutorial: Heart application"
+title:  "How to make the first app"
 date:   2016-05-21 13:00:00
 images: images/heart1.jpg
 excerpt:
@@ -8,11 +8,13 @@ excerpt:
 categories: tutorial SVG animation
 ---
 
+**Prerequisite:** Take a look at [Get Started post](/install/download/2016/05/22/get-started.html). It about how to install Jive.
+
 Throughout this tutorial, we'll walk you through the creation of a basic Jive application with a bit of animation.
 
 Here is the video demonstration how our app will work.
 
-{% youtube VvJks6XVjNc %}
+{% youtube VvJks6XVjNc 300 200 %}
 
 Download the source code from [jive-examples github repository](https://github.com/jiveui/jive-examples). And go to the heart directory.
 
@@ -25,6 +27,15 @@ haxelib run jive test [platform]
 If it's not enough let's go together deeper.
 
 #### Project structure
+
+The heart project has got 4 files inside. See it below. Let's explain what they are.
+
+- view
+  - **MainWindow.xml** *(the view)*
+- viewmodel
+  - **MainViewModel.hx** *(the view model)*
+- **Application.hx** *(the start point)*
+- **project.xml** *(the project file)*
 
 A Jive project is an [OpenFL](http://openfl.org) and [Haxe](http://haxe.org) project. So it must have a main class and project.xml as a project file.
 
@@ -86,7 +97,7 @@ So for our app we need and it's enough:
 - a main view; It contains all graphics and layout it.
 - a main view model. It handle the whole behavior (animation).
 
-#### View: Component
+#### View
 
 All views in Jive are [Components](/api/jive/Component.html). The important parts of Component's interface are below.
 
@@ -101,11 +112,9 @@ class Component {
 }
 {% endhighlight %}
 
-#### View: Window
-
 As a main view we use [Window](/api/jive/Window.html).
 
-The window component is a root UI container for Jive application. We extend it to contain all our graphics.
+The window component is a root UI container for Jive application. We extend it using a declarative way. The **MainView.xml** is below.
 
 {% highlight xml linenos %}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -117,14 +126,51 @@ The window component is a root UI container for Jive application. We extend it t
         height="{Binding windowHeight}">
     <haxe:Implements>
     <![CDATA[
-        jive.DataContextControllable<viewmodel.MainViewModel
-        >]]>
+        jive.DataContextControllable<viewmodel.MainViewModel>
+        ]]>
     </haxe:Implements>
 
     ...
 
 </Window>
 {% endhighlight %}
+
+Several points about semantics:
+
+- the file name means the class name the file declares;
+- the first tag name is the class name it extends;
+- namespaces're used to define Haxe packages;
+- the information about "http://haxe.org/" namespace can be found on [the HML library page](https://github.com/profelis/hml);
+- the interface jive.DataContextControllable<viewmodel.MainViewModel> means that the MainWindow can only take MainViewModel objects as a ViewModel (dataContext property).
+- width={Binding windowWidth} means that the width property of the Window is binded to the windowWidth property of the MainViewModel.
+
+The last point needs more detailed explanation.
+
+#### View Model and Bindings
+
+In our app we have the MainViewModel. You can see a part of it below.
+This viewmodel has a field windowWidth and the MainView binds it to the width property of the Window object.
+It means that when the value of MainViewModel.windowWidth is changed the Window.width will be
+changed to the new value as well.
+
+{% highlight java linenos %}
+package viewmodel;
+
+import jive.geom.Metric;
+@:bindable
+class MainViewModel extends jive.ViewModel {
+    public var windowWidth: Metric;
+    public var windowHeight: Metric;
+
+    ...
+}
+{% endhighlight %}
+
+There are three modes of a binding:
+
+- **once** *{Binding property mode=once}* The value of viewmodel property goes to the view only once when View.dataContext property is set.
+- **oneway** *{Binding property mode=oneway}* The value of viewmodel property goes to the view everytime it's changed. But if the value of a view property is changed it doesn't go to a view model.
+- **twoway** *{Binding property mode=twoway}* It's the case when all changes go from a viewmodel to a view and from a view to a viewmodel.
 
 
 #### View: Svg
@@ -137,7 +183,58 @@ class Svg extends Component {
 }
 {% endhighlight %}
 
-The content property is the pure SVG content
+The content property is the pure SVG content.
+
+The example from our app View with Svg component inside.
+
+{% highlight xml linenos %}
+<Svg
+            x="Metric.percent(50)"
+            y="Metric.percent(20)"
+            width="Metric.absolute(600)"
+            height="Metric.absolute(600)"
+            rotationAngle="{Binding rotation}"
+            rotationPivot="new IntPoint(0, 450)">
+        <content>
+            <rect
+                    x="{rectX}"
+                    y="{rectY}"
+                    width="{rectSize}"
+                    height="{rectSize}"
+                    stroke="{strokeColor}"
+                    stroke-width="1"
+                    fill="none"
+                    opacity="{rectAlpha}"/>
+                    ...
+        </content>
+    </Svg>
+{% endhighlight %}
+
+As you can see the SVG content also supports bindings to a view model.
+
+> **Note:** any change of a property binded to the SVG content causes the repaint of whole SVG component.
+
+Moreover the SVG content has several special expression to define sizes.
+
+- **absolute(value)** means *Metric.absolute(value)*;
+- **virtual(value)** means *Metric.virtual(value)*;
+- **widthPercent(value)** means *Metric.percent(value)* and the base it the width of the current SVG component;
+- **heightPercent(value)** means *Metric.percent(value)* and the base it the height of the current SVG component.
+
+Example:
+
+{% highlight xml linenos %}
+<Svg>
+    <content>
+        <rect
+            x="{ absolute(50) }"
+            y="{ virtual(50) }"
+            width="{ widthPercent(100) }"
+            height="{ heightPercent(100) }"
+            fill="#ff0000"/>
+    </content>
+</Svg>
+{% endhighlight %}
 
 #### Coordinates and sizes: absolute, virtual, percent
 
@@ -152,9 +249,69 @@ enum Metric {
 }
 {% endhighlight %}
 
-- *absolute* means that value is a number of pixels.
-- *virtual* means that value is a number of virtual pixels depending on the PPI of a display.
-- *percent* means that the real value of the size will be calculated basing on the parent size.
+- **absolute** means that value is a number of pixels.
+- **virtual** means that value is a number of virtual pixels depending on the PPI of a display.
+- **percent** means that the real value of the size will be calculated basing on the parent size.
 
+#### Action
 
-#### ViewModel
+Let's add some action to our app.
+
+We've got a rect, two circles and a heart in our
+[MainView](https://github.com/jiveui/jive-examples/blob/master/heart/src/view/MainWindow.xml).
+The [Actuate library](http://lib.haxe.org/p/actuate/) is good to animate our graphics via changing the values of
+our view model properties.
+
+Firstly, place the figures to start positions in the MainViewModel constructor.
+
+{% highlight java linenos %}
+var stageW: Int = Std.int(Lib.current.stage.stageWidth);
+windowWidth = Metric.absolute(stageW);
+windowHeight = Metric.absolute(Std.int(Lib.current.stage.stageHeight));
+
+rectSize = 300;
+
+rectX =  0;
+rectY =  150;
+
+strokeColor = Color.LIGHT_GRAY.toSvg();
+
+radius = 150;
+
+circle1X = circle2X = Std.int(rectX + rectSize/2);
+circle1Y = circle2Y = Std.int(rectY + rectSize/2);
+
+rotation = 0.0;
+
+rectAlpha = 0.0;
+circleAlpha = 0.0;
+
+heartAlpha = 0.0;
+heartBorderAlpha = 0.0;
+{% endhighlight %}
+
+Then we show the rect via changing its opacity.
+
+{% highlight java linenos %}
+private function showRect() {
+    Actuate.tween(this, 1, {
+        rectAlpha: 1.0
+    })
+    .ease(Linear.easeNone)
+    .onComplete(function() {
+        showCircles();
+    });
+}
+{% endhighlight %}
+
+So we're just changing the rectAlpha property of the view model that is binded to the opacity attribute of SVG content.
+It causes redrawing of the SVG content and a user can see the visual animation.
+
+> **Note:** It's not the best way to anumate because of redrawing of whole SVG content but it's only a demonstartion of the Jive features.
+
+I suggest downloading the jive-examples project (if it haven't been happened yet) and running the Jive heart.
+
+{% highlight bash %}
+cd jive-examples/heart
+haxelib run jive test [platform]
+{% endhighlight %}
