@@ -21,10 +21,8 @@ Download the source code from [jive-examples github repository](https://github.c
 The app can be run using the command line below.
 
 {% highlight bash %}
-haxelib run jive test [platform]
+haxelib run jive test [ios|android|cpp]
 {% endhighlight %}
-
-If it's not enough let's go together deeper.
 
 #### Project structure
 
@@ -307,11 +305,11 @@ private function showRect() {
 So we're just changing the rectAlpha property of the view model that is binded to the opacity attribute of SVG content.
 It causes redrawing of the SVG content and a user can see the visual animation.
 
-> **Note:** It's not the best way to anumate because of redrawing of whole SVG content but it's only a demonstartion of the Jive features.
+> **Note:** It's not the best way to animate because of redrawing of whole SVG content but it's only a demonstration of the Jive features.
 
 I suggest downloading the jive-examples project (if it haven't been happened yet) and running the Jive heart.
 
 {% highlight bash %}
 cd jive-examples/heart
-haxelib run jive test [platform]
+haxelib run jive test [ios|android|cpp]
 {% endhighlight %}

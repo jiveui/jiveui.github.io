@@ -313,6 +313,10 @@ $align-class-breakpoints:
       display: block;
     }
 
+    code table {
+      background-color: $code-background-color;
+    }
+
     /* Lists */
     ul,
     ol,

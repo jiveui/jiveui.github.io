@@ -54,7 +54,7 @@ haxelib run jive
 The arguments are the same as the OpenFL command line tool has. So to test the Jive app you can just run
 
 {% highlight bash %}
-haxelib run jive test [platform]
+haxelib run jive test [ios|android|cpp]
 {% endhighlight %}
 
 
