@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Heart: the first Jive application</title>
+  <title>How to make the first app</title>
   <meta name="description" content="How to create the first Jive application">
 
   <link rel="stylesheet" href="/css/foundation.css">
@@ -139,18 +139,41 @@
             <a href="#disqus_thread"></a>
           </span>
         </p>
-        <h3><a href="/tutorial/svg/animation/2016/05/21/heart.html">Heart: the first Jive application</a></h3>
-        <p>Throughout this tutorial, we’ll walk you through the creation of a basic Jive application with a bit of animation.</p>
+        <h3><a href="/tutorial/svg/animation/2016/05/21/heart.html">How to make the first app</a></h3>
+        <p><strong>Prerequisite:</strong> Take a look at <a href="/install/download/2016/05/22/get-started.html">Get Started post</a>. It about how to install Jive.</p>
+
+<p>Throughout this tutorial, we’ll walk you through the creation of a basic Jive application with a bit of animation.</p>
 
 <p>Here is the video demonstration how our app will work.</p>
 
-<iframe width="560" height="420" src="http://www.youtube.com/embed/VvJks6XVjNc?color=white&amp;theme=light"></iframe>
+<iframe width="300" height="300" src="http://www.youtube.com/embed/VvJks6XVjNc?color=white&amp;theme=light"></iframe>
 
-<p>If you don’t like to read you can download it from <a href="https://github.com/jiveui/jive-examples">jive-examples github repository</a> and run it.</p>
+<p>Download the source code from <a href="https://github.com/jiveui/jive-examples">jive-examples github repository</a>. And go to the heart directory.</p>
 
-<p>If it’s not enough let’s go together.</p>
+<p>The app can be run using the command line below.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">haxelib run jive <span class="nb">test</span> <span class="o">[</span>platform]</code></pre></figure>
+
+<p>If it’s not enough let’s go together deeper.</p>
 
 <h4 id="project-structure">Project structure</h4>
+
+<p>The heart project has got 4 files inside. See it below. Let’s explain what they are.</p>
+
+<ul>
+  <li>view
+    <ul>
+      <li><strong>MainWindow.xml</strong> <em>(the view)</em></li>
+    </ul>
+  </li>
+  <li>viewmodel
+    <ul>
+      <li><strong>MainViewModel.hx</strong> <em>(the view model)</em></li>
+    </ul>
+  </li>
+  <li><strong>Application.hx</strong> <em>(the start point)</em></li>
+  <li><strong>project.xml</strong> <em>(the project file)</em></li>
+</ul>
 
 <p>A Jive project is an <a href="http://openfl.org">OpenFL</a> and <a href="http://haxe.org">Haxe</a> project. So it must have a main class and project.xml as a project file.</p>
 
@@ -158,6 +181,55 @@
   <li><a href="http://www.openfl.org/documentation/getting-started/your-first-project/">OpenFl project description</a>;</li>
   <li><a href="http://www.openfl.org/documentation/projects/project-files/xml-format/">project.xml documentation</a>.</li>
 </ul>
+
+<p>To enable Jive library for the project we need a line below in <em>project.xml</em></p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;haxelib</span> <span class="na">name=</span><span class="s">"jive"</span><span class="nt">/&gt;</span></code></pre></figure>
+
+<h4 id="start-point">Start point</h4>
+
+<p>First of all our application needs a start point. It’s the Application class.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td class="code"><pre><span class="kn">package</span> <span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">view.MainWindow</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">viewmodel.MainViewModel</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jive.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">function</span> <span class="k">new</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Jive</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">var</span> <span class="nl">w:</span> <span class="n">MainWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainWindow</span><span class="o">();</span>
+        <span class="n">w</span><span class="o">.</span><span class="na">dataContext</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainViewModel</span><span class="o">();</span>
+        <span class="n">w</span><span class="o">.</span><span class="na">opened</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The Application constructor only</p>
+
+<ul>
+  <li>initializes Jive;</li>
+  <li>creates and opens the main Jive window;</li>
+  <li>creates the main view model.</li>
+</ul>
+
+<p>Here we need to pause and have a bit of information about Model-View-ViewModel concept and how it works for Jive.</p>
+
+<h4 id="mvvm-idea">MVVM idea</h4>
 
 <p>Jive is based on:</p>
 
@@ -174,13 +246,327 @@ the data objects from the model in such a way objects are easily managed and pre
 
 <p>and <a href="https://en.wikipedia.org/wiki/UI_data_binding">the Data Binding</a>. It’s a way to implement a link between views and view models.</p>
 
-<h5 id="view">View</h5>
+<p>So for our app we need and it’s enough:</p>
 
-<h5 id="view-model">View Model</h5>
+<ul>
+  <li>a main view; It contains all graphics and layout it.</li>
+  <li>a main view model. It handle the whole behavior (animation).</li>
+</ul>
 
-<h4 id="svg-as-a-graphics-definition">SVG as a graphics definition</h4>
+<h4 id="view">View</h4>
 
-<h4 id="actuate-to-animate">Actuate to animate</h4>
+<p>All views in Jive are <a href="/api/jive/Component.html">Components</a>. The important parts of Component’s interface are below.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="kd">class</span> <span class="nc">Component</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">x:</span> <span class="n">Metric</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">y:</span> <span class="n">Metric</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">width:</span> <span class="n">Metric</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">height:</span> <span class="n">Metric</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">margin:</span> <span class="n">MetricInsets</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">parent:</span> <span class="n">Container</span><span class="o">;</span>
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>As a main view we use <a href="/api/jive/Window.html">Window</a>.</p>
+
+<p>The window component is a root UI container for Jive application. We extend it using a declarative way. The <strong>MainView.xml</strong> is below.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre></td><td class="code"><pre><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;Window</span>
+        <span class="na">xmlns=</span><span class="s">"jive"</span>
+        <span class="na">xmlns:geom=</span><span class="s">"jive.geom"</span>
+        <span class="na">xmlns:haxe=</span><span class="s">"http://haxe.org/"</span>
+        <span class="na">width=</span><span class="s">"{Binding windowWidth}"</span>
+        <span class="na">height=</span><span class="s">"{Binding windowHeight}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;haxe:Implements&gt;</span>
+    <span class="cp">&lt;![CDATA[
+        jive.DataContextControllable&lt;viewmodel.MainViewModel&gt;</span>
+        ]]&gt;
+    <span class="nt">&lt;/haxe:Implements&gt;</span>
+
+    ...
+
+<span class="nt">&lt;/Window&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Several points about semantics:</p>
+
+<ul>
+  <li>the file name means the class name the file declares;</li>
+  <li>the first tag name is the class name it extends;</li>
+  <li>namespaces’re used to define Haxe packages;</li>
+  <li>the information about “http://haxe.org/” namespace can be found on <a href="https://github.com/profelis/hml">the HML library page</a>;</li>
+  <li>the interface jive.DataContextControllable<viewmodel.MainViewModel> means that the MainWindow can only take MainViewModel objects as a ViewModel (dataContext property).</viewmodel.MainViewModel></li>
+  <li>width={Binding windowWidth} means that the width property of the Window is binded to the windowWidth property of the MainViewModel.</li>
+</ul>
+
+<p>The last point needs more detailed explanation.</p>
+
+<h4 id="view-model-and-bindings">View Model and Bindings</h4>
+
+<p>In our app we have the MainViewModel. You can see a part of it below.
+This viewmodel has a field windowWidth and the MainView binds it to the width property of the Window object.
+It means that when the value of MainViewModel.windowWidth is changed the Window.width will be
+changed to the new value as well.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="kn">package</span> <span class="n">viewmodel</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">jive.geom.Metric</span><span class="o">;</span>
+<span class="err">@</span><span class="o">:</span><span class="n">bindable</span>
+<span class="kd">class</span> <span class="nc">MainViewModel</span> <span class="kd">extends</span> <span class="n">jive</span><span class="o">.</span><span class="na">ViewModel</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">windowWidth:</span> <span class="n">Metric</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">windowHeight:</span> <span class="n">Metric</span><span class="o">;</span>
+
+    <span class="o">...</span>
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>There are three modes of a binding:</p>
+
+<ul>
+  <li><strong>once</strong> <em>{Binding property mode=once}</em> The value of viewmodel property goes to the view only once when View.dataContext property is set.</li>
+  <li><strong>oneway</strong> <em>{Binding property mode=oneway}</em> The value of viewmodel property goes to the view everytime it’s changed. But if the value of a view property is changed it doesn’t go to a view model.</li>
+  <li><strong>twoway</strong> <em>{Binding property mode=twoway}</em> It’s the case when all changes go from a viewmodel to a view and from a view to a viewmodel.</li>
+</ul>
+
+<h4 id="view-svg">View: Svg</h4>
+
+<p>The graphics container in Jive is the Svg component:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="kd">class</span> <span class="nc">Svg</span> <span class="kd">extends</span> <span class="n">Component</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">var</span> <span class="nl">content:</span> <span class="n">String</span><span class="o">;</span>
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The content property is the pure SVG content.</p>
+
+<p>The example from our app View with Svg component inside.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td class="code"><pre><span class="nt">&lt;Svg</span>
+            <span class="na">x=</span><span class="s">"Metric.percent(50)"</span>
+            <span class="na">y=</span><span class="s">"Metric.percent(20)"</span>
+            <span class="na">width=</span><span class="s">"Metric.absolute(600)"</span>
+            <span class="na">height=</span><span class="s">"Metric.absolute(600)"</span>
+            <span class="na">rotationAngle=</span><span class="s">"{Binding rotation}"</span>
+            <span class="na">rotationPivot=</span><span class="s">"new IntPoint(0, 450)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;content&gt;</span>
+            <span class="nt">&lt;rect</span>
+                    <span class="na">x=</span><span class="s">"{rectX}"</span>
+                    <span class="na">y=</span><span class="s">"{rectY}"</span>
+                    <span class="na">width=</span><span class="s">"{rectSize}"</span>
+                    <span class="na">height=</span><span class="s">"{rectSize}"</span>
+                    <span class="na">stroke=</span><span class="s">"{strokeColor}"</span>
+                    <span class="na">stroke-width=</span><span class="s">"1"</span>
+                    <span class="na">fill=</span><span class="s">"none"</span>
+                    <span class="na">opacity=</span><span class="s">"{rectAlpha}"</span><span class="nt">/&gt;</span>
+                    ...
+        <span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;/Svg&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>As you can see the SVG content also supports bindings to a view model.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> any change of a property binded to the SVG content causes the repaint of whole SVG component.</p>
+</blockquote>
+
+<p>Moreover the SVG content has several special expression to define sizes.</p>
+
+<ul>
+  <li><strong>absolute(value)</strong> means <em>Metric.absolute(value)</em>;</li>
+  <li><strong>virtual(value)</strong> means <em>Metric.virtual(value)</em>;</li>
+  <li><strong>widthPercent(value)</strong> means <em>Metric.percent(value)</em> and the base it the width of the current SVG component;</li>
+  <li><strong>heightPercent(value)</strong> means <em>Metric.percent(value)</em> and the base it the height of the current SVG component.</li>
+</ul>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="nt">&lt;Svg&gt;</span>
+    <span class="nt">&lt;content&gt;</span>
+        <span class="nt">&lt;rect</span>
+            <span class="na">x=</span><span class="s">"{ absolute(50) }"</span>
+            <span class="na">y=</span><span class="s">"{ virtual(50) }"</span>
+            <span class="na">width=</span><span class="s">"{ widthPercent(100) }"</span>
+            <span class="na">height=</span><span class="s">"{ heightPercent(100) }"</span>
+            <span class="na">fill=</span><span class="s">"#ff0000"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/content&gt;</span>
+<span class="nt">&lt;/Svg&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="coordinates-and-sizes-absolute-virtual-percent">Coordinates and sizes: absolute, virtual, percent</h4>
+
+<p>All coordinates and sizes of them have type <strong>Metric</strong>:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">enum</span> <span class="n">Metric</span> <span class="o">{</span>
+    <span class="n">absolute</span><span class="o">(</span><span class="nl">value:</span> <span class="n">Int</span><span class="o">);</span>
+    <span class="n">virtual</span><span class="o">(</span><span class="nl">value:</span> <span class="n">Int</span><span class="o">);</span>
+    <span class="n">percent</span><span class="o">(</span><span class="nl">value:</span> <span class="n">Float</span><span class="o">);</span>
+    <span class="n">none</span><span class="o">;</span>
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li><strong>absolute</strong> means that value is a number of pixels.</li>
+  <li><strong>virtual</strong> means that value is a number of virtual pixels depending on the PPI of a display.</li>
+  <li><strong>percent</strong> means that the real value of the size will be calculated basing on the parent size.</li>
+</ul>
+
+<h4 id="action">Action</h4>
+
+<p>Let’s add some action to our app.</p>
+
+<p>We’ve got a rect, two circles and a heart in our
+<a href="https://github.com/jiveui/jive-examples/blob/master/heart/src/view/MainWindow.xml">MainView</a>.
+The <a href="http://lib.haxe.org/p/actuate/">Actuate library</a> is good to animate our graphics via changing the values of
+our view model properties.</p>
+
+<p>Firstly, place the figures to start positions in the MainViewModel constructor.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></td><td class="code"><pre><span class="n">var</span> <span class="nl">stageW:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Std</span><span class="o">.</span><span class="na">int</span><span class="o">(</span><span class="n">Lib</span><span class="o">.</span><span class="na">current</span><span class="o">.</span><span class="na">stage</span><span class="o">.</span><span class="na">stageWidth</span><span class="o">);</span>
+<span class="n">windowWidth</span> <span class="o">=</span> <span class="n">Metric</span><span class="o">.</span><span class="na">absolute</span><span class="o">(</span><span class="n">stageW</span><span class="o">);</span>
+<span class="n">windowHeight</span> <span class="o">=</span> <span class="n">Metric</span><span class="o">.</span><span class="na">absolute</span><span class="o">(</span><span class="n">Std</span><span class="o">.</span><span class="na">int</span><span class="o">(</span><span class="n">Lib</span><span class="o">.</span><span class="na">current</span><span class="o">.</span><span class="na">stage</span><span class="o">.</span><span class="na">stageHeight</span><span class="o">));</span>
+
+<span class="n">rectSize</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+
+<span class="n">rectX</span> <span class="o">=</span>  <span class="mi">0</span><span class="o">;</span>
+<span class="n">rectY</span> <span class="o">=</span>  <span class="mi">150</span><span class="o">;</span>
+
+<span class="n">strokeColor</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="na">LIGHT_GRAY</span><span class="o">.</span><span class="na">toSvg</span><span class="o">();</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="mi">150</span><span class="o">;</span>
+
+<span class="n">circle1X</span> <span class="o">=</span> <span class="n">circle2X</span> <span class="o">=</span> <span class="n">Std</span><span class="o">.</span><span class="na">int</span><span class="o">(</span><span class="n">rectX</span> <span class="o">+</span> <span class="n">rectSize</span><span class="o">/</span><span class="mi">2</span><span class="o">);</span>
+<span class="n">circle1Y</span> <span class="o">=</span> <span class="n">circle2Y</span> <span class="o">=</span> <span class="n">Std</span><span class="o">.</span><span class="na">int</span><span class="o">(</span><span class="n">rectY</span> <span class="o">+</span> <span class="n">rectSize</span><span class="o">/</span><span class="mi">2</span><span class="o">);</span>
+
+<span class="n">rotation</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+<span class="n">rectAlpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+<span class="n">circleAlpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+<span class="n">heartAlpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+<span class="n">heartBorderAlpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then we show the rect via changing its opacity.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="kd">private</span> <span class="n">function</span> <span class="nf">showRect</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Actuate</span><span class="o">.</span><span class="na">tween</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">{</span>
+        <span class="nl">rectAlpha:</span> <span class="mf">1.0</span>
+    <span class="o">})</span>
+    <span class="o">.</span><span class="na">ease</span><span class="o">(</span><span class="n">Linear</span><span class="o">.</span><span class="na">easeNone</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">onComplete</span><span class="o">(</span><span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">showCircles</span><span class="o">();</span>
+    <span class="o">});</span>
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>So we’re just changing the rectAlpha property of the view model that is binded to the opacity attribute of SVG content.
+It causes redrawing of the SVG content and a user can see the visual animation.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> It’s not the best way to anumate because of redrawing of whole SVG content but it’s only a demonstartion of the Jive features.</p>
+</blockquote>
+
+<p>I suggest downloading the jive-examples project (if it haven’t been happened yet) and running the Jive heart.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>jive-examples/heart
+haxelib run jive <span class="nb">test</span> <span class="o">[</span>platform]</code></pre></figure>
 
       </div>
     </div>
@@ -267,7 +653,7 @@ the data objects from the model in such a way objects are easily managed and pre
     
       <li><a href="/install/download/2016/05/22/get-started.html">Get started with Jive</a></li>
     
-      <li><a href="/tutorial/svg/animation/2016/05/21/heart.html">Heart: the first Jive application</a></li>
+      <li><a href="/tutorial/svg/animation/2016/05/21/heart.html">How to make the first app</a></li>
     
   </ul>
 </div>
@@ -312,7 +698,7 @@ the data objects from the model in such a way objects are easily managed and pre
     
       <li><a href="/install/download/2016/05/22/get-started.html">Get started with Jive</a></li>
     
-      <li><a href="/tutorial/svg/animation/2016/05/21/heart.html">Heart: the first Jive application</a></li>
+      <li><a href="/tutorial/svg/animation/2016/05/21/heart.html">How to make the first app</a></li>
     
   </ul>
 </div>

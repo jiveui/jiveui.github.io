@@ -5174,7 +5174,8 @@ code {
   border-width: 1px;
   border-style: solid;
   border-color: #dfdfdf;
-  padding: 0.14286rem 0.35714rem 0.07143rem; }
+  padding: 0.14286rem 0.35714rem 0.07143rem;
+  display: block; }
 
 /* Lists */
 ul,
