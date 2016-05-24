@@ -5177,6 +5177,9 @@ code {
   padding: 0.14286rem 0.35714rem 0.07143rem;
   display: block; }
 
+code table {
+  background-color: #f8f8f8; }
+
 /* Lists */
 ul,
 ol,

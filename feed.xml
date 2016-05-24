@@ -6,8 +6,8 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 May 2016 13:06:05 +0700</pubDate>
-    <lastBuildDate>Tue, 24 May 2016 13:06:05 +0700</lastBuildDate>
+    <pubDate>Tue, 24 May 2016 15:01:48 +0700</pubDate>
+    <lastBuildDate>Tue, 24 May 2016 15:01:48 +0700</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -55,7 +55,7 @@ haxelib install hml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The arguments are the same as the OpenFL command line tool has. So to test the Jive app you can just run&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib run jive &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;platform]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib run jive &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ios|android|cpp]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;the-first-app&quot;&gt;The first app&lt;/h2&gt;
 
@@ -87,9 +87,7 @@ haxelib install hml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The app can be run using the command line below.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib run jive &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;platform]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;If it’s not enough let’s go together deeper.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;haxelib run jive &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ios|android|cpp]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;project-structure&quot;&gt;Project structure&lt;/h4&gt;
 
@@ -495,13 +493,13 @@ our view model properties.&lt;/p&gt;
 It causes redrawing of the SVG content and a user can see the visual animation.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; It’s not the best way to anumate because of redrawing of whole SVG content but it’s only a demonstartion of the Jive features.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; It’s not the best way to animate because of redrawing of whole SVG content but it’s only a demonstration of the Jive features.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;I suggest downloading the jive-examples project (if it haven’t been happened yet) and running the Jive heart.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;jive-examples/heart
-haxelib run jive &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;platform]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+haxelib run jive &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ios|android|cpp]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Sat, 21 May 2016 20:00:00 +0700</pubDate>
         <link>/tutorial/svg/animation/2016/05/21/heart.html</link>
@@ -513,6 +511,76 @@ haxelib run jive &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span cla
         <category>SVG</category>
         
         <category>animation</category>
+        
+      </item>
+    
+      <item>
+        <title>Use case: Maintenance</title>
+        <description>&lt;p&gt;It’s our first app based on Jive in production.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/app/ekspluatacia/id1022743438?mt=8&quot;&gt;App Store&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=transstroy.maintenance&quot;&gt;Google Play&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe width=&quot;300&quot; height=&quot;300&quot; src=&quot;http://www.youtube.com/embed/mhD7MtrlZeE?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This project facilitates communication between the people and the company that maintains their apartaments.&lt;/p&gt;
+
+&lt;p&gt;The first page provides us with the most important information like account info, billing to be paid, and r
+esource consumption like water or electricity. Also on this form we put some important navigation buttons,
+a button to pay your balance and a history button. This is a lot of information so we integrated a few
+interactive elements to hide and show this information when it’s necessary.&lt;/p&gt;
+
+&lt;p&gt;The next page is specifically for all user consumption where we can choose the resource type and review it
+with a table or a chart. This table can contain a lot of information and still work pretty fast.
+This information is presented with a visual chart  so we can see how our consumptions are changing with each period.
+And we can see some point values if we touch it on the chart. Also, we can pick time intervals and time periods for
+the table and the chart.
+We have another tab with a ticket system when the user can send messages to the maintenance company regarding
+issues or problems they may have.&lt;/p&gt;
+
+&lt;p&gt;And a left menu component that contains some additional information. You can see here some interactive elements too,
+in order to reduce the amount of visible information at the same time. Lastly, I’ll demonstrate how our text
+fields works for iOS in account info form. Today all editable text areas are native so they support all features.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 01 May 2016 22:00:00 +0700</pubDate>
+        <link>/usecase/ios/android/2016/05/01/maintenance.html</link>
+        <guid isPermaLink="true">/usecase/ios/android/2016/05/01/maintenance.html</guid>
+        
+        
+        <category>usecase</category>
+        
+        <category>ios</category>
+        
+        <category>android</category>
+        
+      </item>
+    
+      <item>
+        <title>Use case: Clover</title>
+        <description>&lt;iframe width=&quot;300&quot; height=&quot;300&quot; src=&quot;http://www.youtube.com/embed/KYO7bUc3A8o?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/app/klever/id1099716626?mt=8&quot;&gt;App Store&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=discount.customers&quot;&gt;Google Play&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Clover provides a discount system.
+Customers get discounts based on their purchase history.
+They go to a shop with a smartphone and identify themselves by a QR code generated by the app.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 01 May 2016 21:00:00 +0700</pubDate>
+        <link>/usecase/ios/android/2016/05/01/clover.html</link>
+        <guid isPermaLink="true">/usecase/ios/android/2016/05/01/clover.html</guid>
+        
+        
+        <category>usecase</category>
+        
+        <category>ios</category>
+        
+        <category>android</category>
         
       </item>
     
