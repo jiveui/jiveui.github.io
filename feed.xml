@@ -6,9 +6,103 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 May 2016 15:01:48 +0700</pubDate>
-    <lastBuildDate>Tue, 24 May 2016 15:01:48 +0700</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Sat, 28 May 2016 21:11:48 +0700</pubDate>
+    <lastBuildDate>Sat, 28 May 2016 21:11:48 +0700</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>The Jive principles and the roadmap</title>
+        <description>&lt;p&gt;Firstly, I’m going to express our idea about a good UI library then our roadmap will be presented.&lt;/p&gt;
+
+&lt;p&gt;It should be mentioned that now we’ve got two versions of Jive framework:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jiveui/jive/tree/master&quot;&gt;The current version of Jive&lt;/a&gt;. It used to create several mobile
+ and web apps that are in production now. It’s based on AsWing UI library.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jiveui/jive/tree/next&quot;&gt;The next version&lt;/a&gt;. Recently we’ve decided to rewrite Jive from scratch
+ (almost from scratch ;) ). The decision was made because the previous version does not meet our principles of a
+ good UI framework.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So this post is about the next version. Moreover, the whole site is about it.&lt;/p&gt;
+
+&lt;h4 id=&quot;principles&quot;&gt;Principles&lt;/h4&gt;
+
+&lt;p&gt;Our base principles are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A framework should be easy to use: The UI framework should be easy to create apps and to extend its components.&lt;/li&gt;
+  &lt;li&gt;The UI responsiveness’s invaluable : The user experience should be smooth.
+It&#39;s extremely important to complete UI tasks within a time less than the frustration threshold.&lt;/li&gt;
+  &lt;li&gt;A framework must love and knows its platform even if it’s a crossplatform framework: We focuses on mobile platforms.
+So many specific mobile features (like touches, different PPI and screen dimensions) were considered
+and put into the heart of Jive.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;roadmap&quot;&gt;Roadmap&lt;/h4&gt;
+&lt;p&gt;Basing on the ideas above we’ve planned the main features of the Jive framework:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The easiness to start and create applications:
+    &lt;ul&gt;
+      &lt;li&gt;few base components;&lt;/li&gt;
+      &lt;li&gt;simple build process; &lt;strong&gt;Command line tools&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;declarative way to define views of UI components; &lt;strong&gt;MVVM, Data binding, XML&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;a visual design tool;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The easiness to extend the framework:
+    &lt;ul&gt;
+      &lt;li&gt;easy to create custom UI component; &lt;strong&gt;Keep the code base as simple as possible&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;the theme system where the view of every UI component may be changed as much as possible keeping its behavior;
+&lt;strong&gt;XML&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;English is not enough. It’s important to provide a extendable I18n system where a
+user can change strings that we added to UI components. &lt;strong&gt;rox-i18n, unifill, native text fields&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The User Experience
+    &lt;ul&gt;
+      &lt;li&gt;We need to have the performance to provide responsiveness. &lt;strong&gt;Some bitmap caching&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Visual reactions, animations to express actions. It needs to make 
+the animation definition as simple as possible. &lt;strong&gt;Define animations inside view in XML&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mobile stuff
+    &lt;ul&gt;
+      &lt;li&gt;DPI support; &lt;strong&gt;Virtual pixels, percents&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Declarative graphics
+    &lt;ul&gt;
+      &lt;li&gt;use SVG format to define graphics in the view XMLs;&lt;/li&gt;
+      &lt;li&gt;bind the view models to SVG content.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Getting rid of the AsWing stuff like LookAndFeel, Border, layouts, foreground, background, preferredSize.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;whats-done&quot;&gt;What’s done&lt;/h4&gt;
+&lt;p&gt;The next version is in progress of development. But you can take a look at 
+&lt;a href=&quot;/tutorial/svg/animation/2016/05/21/heart.html&quot;&gt;the first example of its usage&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+&lt;p&gt;Here are our ideas and plans. If you have any advises, suggestions or 
+different ideas about an UI framework, fill free to express them in comments. 
+We’ll appreciate it a lot.&lt;/p&gt;
+
+&lt;p&gt;Thanks,
+Jive team&lt;/p&gt;
+</description>
+        <pubDate>Sat, 28 May 2016 17:00:00 +0700</pubDate>
+        <link>/principles/roadmap/2016/05/28/roadmap.html</link>
+        <guid isPermaLink="true">/principles/roadmap/2016/05/28/roadmap.html</guid>
+        
+        
+        <category>principles</category>
+        
+        <category>roadmap</category>
+        
+      </item>
     
       <item>
         <title>Get started with Jive</title>

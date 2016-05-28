@@ -6,9 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Category: ios</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>The Jive principles and the roadmap</title>
+  <meta name="description" content="We've got several ideas in out minds how the good UI library should work. We would like to explain them and ask you for some feedback and your ideas.">
 
   <link rel="stylesheet" href="/css/foundation.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -37,7 +36,7 @@
   <script src="/javascripts/imagesloaded.pkgd.min.js" type="text/javascript"></script>
   <script src="/javascripts/slick.min.js" type="text/javascript"></script>
   <script src="/javascripts/json2.js" type="text/javascript"></script>
-  <link rel="canonical" href="/blog/category/ios/">
+  <link rel="canonical" href="/principles/roadmap/2016/05/28/roadmap.html">
   <link rel="alternate" type="application/rss+xml" title="JiveUI" href="/feed.xml" />
 </head>
 
@@ -120,56 +119,138 @@
   <div class='row'>
     <div class='large-9 columns'>
 
-      
-  <div class='big mod modBlogPost'>
-    <div class='images'>
-      
-        <div class='image'><img alt="" src="/images/clover-post.png" /></div>
-      
-    </div>
-    <div class='content'>
-      <p class='info'>
-        <span>May 01, 2016</span>
-        /
-        <span>
-          by 
-        </span>
-        /
-        <span>
-          <a href="/usecase/ios/android/2016/05/01/clover.html#disqus_thread">0 comments</a>
-        </span>
-      </p>
-      <h3><a href="/usecase/ios/android/2016/05/01/clover.html">Use case: Clover</a></h3>
-      <p>The Clover provides a discount system.</p>
-      <div class='spacing'></div>
-      <a class="button small" href="/usecase/ios/android/2016/05/01/clover.html">Read more</a>
-    </div>
-  </div>
+      <div class='row'>
+  <div class='large-12 columns'>
+    <div class='mod modBlogPost big'>
+      <div class='images'>
+        
+          <div class='image'><img alt="" src="/images/roadmap.jpg" /></div>
+        
+      </div>
+      <div class='content'>
+        <p class='info'>
+          <span>May 28, 2016</span>
+          /
+          <span>
+            by 
+          </span>
+          /
+          <span>
+            <a href="#disqus_thread"></a>
+          </span>
+        </p>
+        <h3><a href="/principles/roadmap/2016/05/28/roadmap.html">The Jive principles and the roadmap</a></h3>
+        <p>Firstly, I’m going to express our idea about a good UI library then our roadmap will be presented.</p>
 
-  <div class='big mod modBlogPost'>
-    <div class='images'>
-      
-        <div class='image'><img alt="" src="/images/maintenance-post.png" /></div>
-      
+<p>It should be mentioned that now we’ve got two versions of Jive framework:</p>
+
+<ul>
+  <li><a href="https://github.com/jiveui/jive/tree/master">The current version of Jive</a>. It used to create several mobile
+ and web apps that are in production now. It’s based on AsWing UI library.</li>
+  <li><a href="https://github.com/jiveui/jive/tree/next">The next version</a>. Recently we’ve decided to rewrite Jive from scratch
+ (almost from scratch ;) ). The decision was made because the previous version does not meet our principles of a
+ good UI framework.</li>
+</ul>
+
+<p>So this post is about the next version. Moreover, the whole site is about it.</p>
+
+<h4 id="principles">Principles</h4>
+
+<p>Our base principles are:</p>
+
+<ul>
+  <li>A framework should be easy to use: The UI framework should be easy to create apps and to extend its components.</li>
+  <li>The UI responsiveness’s invaluable : The user experience should be smooth.
+It's extremely important to complete UI tasks within a time less than the frustration threshold.</li>
+  <li>A framework must love and knows its platform even if it’s a crossplatform framework: We focuses on mobile platforms.
+So many specific mobile features (like touches, different PPI and screen dimensions) were considered
+and put into the heart of Jive.</li>
+</ul>
+
+<h4 id="roadmap">Roadmap</h4>
+<p>Basing on the ideas above we’ve planned the main features of the Jive framework:</p>
+
+<ul>
+  <li>The easiness to start and create applications:
+    <ul>
+      <li>few base components;</li>
+      <li>simple build process; <strong>Command line tools</strong></li>
+      <li>declarative way to define views of UI components; <strong>MVVM, Data binding, XML</strong></li>
+      <li>a visual design tool;</li>
+    </ul>
+  </li>
+  <li>The easiness to extend the framework:
+    <ul>
+      <li>easy to create custom UI component; <strong>Keep the code base as simple as possible</strong></li>
+      <li>the theme system where the view of every UI component may be changed as much as possible keeping its behavior;
+<strong>XML</strong></li>
+      <li>English is not enough. It’s important to provide a extendable I18n system where a
+user can change strings that we added to UI components. <strong>rox-i18n, unifill, native text fields</strong></li>
+    </ul>
+  </li>
+  <li>The User Experience
+    <ul>
+      <li>We need to have the performance to provide responsiveness. <strong>Some bitmap caching</strong></li>
+      <li>Visual reactions, animations to express actions. It needs to make 
+the animation definition as simple as possible. <strong>Define animations inside view in XML</strong></li>
+    </ul>
+  </li>
+  <li>Mobile stuff
+    <ul>
+      <li>DPI support; <strong>Virtual pixels, percents</strong></li>
+    </ul>
+  </li>
+  <li>Declarative graphics
+    <ul>
+      <li>use SVG format to define graphics in the view XMLs;</li>
+      <li>bind the view models to SVG content.</li>
+    </ul>
+  </li>
+  <li>Getting rid of the AsWing stuff like LookAndFeel, Border, layouts, foreground, background, preferredSize.</li>
+</ul>
+
+<h4 id="whats-done">What’s done</h4>
+<p>The next version is in progress of development. But you can take a look at 
+<a href="/tutorial/svg/animation/2016/05/21/heart.html">the first example of its usage</a>.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+<p>Here are our ideas and plans. If you have any advises, suggestions or 
+different ideas about an UI framework, fill free to express them in comments. 
+We’ll appreciate it a lot.</p>
+
+<p>Thanks,
+Jive team</p>
+
+      </div>
     </div>
-    <div class='content'>
-      <p class='info'>
-        <span>May 01, 2016</span>
-        /
-        <span>
-          by 
-        </span>
-        /
-        <span>
-          <a href="/usecase/ios/android/2016/05/01/maintenance.html#disqus_thread">0 comments</a>
-        </span>
-      </p>
-      <h3><a href="/usecase/ios/android/2016/05/01/maintenance.html">Use case: Maintenance</a></h3>
-      <p>This app facilitates communication between the people and the company that maintains their apartments.</p>
-      <div class='spacing'></div>
-      <a class="button small" href="/usecase/ios/android/2016/05/01/maintenance.html">Read more</a>
-    </div>
+    <div class='two spacing'></div>
+
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jiveui.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    
+    <div class='four spacing'></div>
   </div>
+</div>
 
 
       
