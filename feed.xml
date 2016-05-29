@@ -6,9 +6,39 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 May 2016 13:41:38 +0700</pubDate>
-    <lastBuildDate>Sun, 29 May 2016 13:41:38 +0700</lastBuildDate>
+    <pubDate>Sun, 29 May 2016 23:43:31 +0700</pubDate>
+    <lastBuildDate>Sun, 29 May 2016 23:43:31 +0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Jive on WWX2016</title>
+        <description>&lt;p&gt;We had a speech on WWX 2016 by &lt;a href=&quot;https://twitter.com/klmsmb&quot;&gt;Maxim Bekhterev&lt;/a&gt;. 
+You can see the video and slides of it below.&lt;/p&gt;
+
+&lt;p&gt;More over we’d like to present &lt;a href=&quot;/principles/roadmap/2016/05/28/roadmap.html&quot;&gt;our ideas about UI frameworks in general 
+and about how the Jive should look like in the future&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;video&quot;&gt;Video&lt;/h4&gt;
+
+&lt;iframe width=&quot;300&quot; height=&quot;300&quot; src=&quot;http://www.youtube.com/embed/p8hmrpQFXdY?color=white&amp;amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&quot;slides&quot;&gt;Slides&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1Xar0gWyG2DYcmYIj7iwJvJ4UG8f45Yij1IQqnhJSI9U/pub?start=true&amp;amp;loop=false&amp;amp;delayms=10000&quot;&gt;Slides on Google Docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks,
+Jive team&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 May 2016 17:00:00 +0700</pubDate>
+        <link>/principles/roadmap/2016/05/29/wwx2016.html</link>
+        <guid isPermaLink="true">/principles/roadmap/2016/05/29/wwx2016.html</guid>
+        
+        
+        <category>principles</category>
+        
+        <category>roadmap</category>
+        
+      </item>
     
       <item>
         <title>The Jive principles and the roadmap</title>
