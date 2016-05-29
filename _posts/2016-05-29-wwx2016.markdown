@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "Jive on WWX2016"
+date:   2016-05-29 10:00:00
+images: images/tower.png
+excerpt:
+    From 27 to 30 May the World Wide Haxe conference happened. 
+    Here is the our contribution to it.
+categories: principles roadmap
+---
+
+We had a speech on WWX 2016 by [Maxim Bekhterev](https://twitter.com/klmsmb). 
+You can see the video and slides of it below.
+
+More over we'd like to present [our ideas about UI frameworks in general 
+and about how the Jive should look like in the future]({% post_url 2016-05-28-roadmap %}).
+
+#### Video
+
+{% youtube p8hmrpQFXdY 300 200 %}
+
+
+#### Slides
+
+[Slides on Google Docs](https://docs.google.com/presentation/d/1Xar0gWyG2DYcmYIj7iwJvJ4UG8f45Yij1IQqnhJSI9U/pub?start=true&loop=false&delayms=10000)
+
+Thanks,
+Jive team
