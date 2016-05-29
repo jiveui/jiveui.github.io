@@ -1,0 +1,70 @@
+---
+layout: post
+title:  "The Jive principles and the roadmap"
+date:   2016-05-28 10:00:00
+images: images/roadmap.jpg
+excerpt:
+    We've got several ideas in out minds how the good UI library should work. We would like to explain them and
+    ask you for some feedback and your ideas.
+categories: principles roadmap
+---
+
+Firstly, I'm going to express our idea about a good UI library then our roadmap will be presented.
+
+It should be mentioned that now we've got two versions of Jive framework:
+
+- [The current version of Jive](https://github.com/jiveui/jive/tree/master). It used to create several mobile
+ and web apps that are in production now. It's based on AsWing UI library.
+- [The next version](https://github.com/jiveui/jive/tree/next). Recently we've decided to rewrite Jive from scratch
+ (almost from scratch ;) ). The decision was made because the previous version does not meet our principles of a
+ good UI framework.
+
+So this post is about the next version. Moreover, the whole site is about it.
+
+#### Principles
+
+Our base principles are:
+
+- A framework should be easy to use: The UI framework should be easy to create apps and to extend its components.
+- The UI responsiveness's invaluable : The user experience should be smooth.
+  It\'s extremely important to complete UI tasks within a time less than the frustration threshold.
+- A framework must love and knows its platform even if it's a crossplatform framework: We focuses on mobile platforms.
+  So many specific mobile features (like touches, different PPI and screen dimensions) were considered
+  and put into the heart of Jive.
+
+#### Roadmap
+Basing on the ideas above we've planned the main features of the Jive framework:
+
+- The easiness to start and create applications:
+  - few base components;
+  - simple build process; **Command line tools**
+  - declarative way to define views of UI components; **MVVM, Data binding, XML**
+  - a visual design tool;
+- The easiness to extend the framework:
+  - easy to create custom UI component; **Keep the code base as simple as possible**
+  - the theme system where the view of every UI component may be changed as much as possible keeping its behavior;
+  **XML**
+  - English is not enough. It's important to provide a extendable I18n system where a
+  user can change strings that we added to UI components. **rox-i18n, unifill, native text fields**
+- The User Experience
+  - We need to have the performance to provide responsiveness. **Some bitmap caching**
+  - Visual reactions, animations to express actions. It needs to make 
+  the animation definition as simple as possible. **Define animations inside view in XML**
+- Mobile stuff
+  - DPI support; **Virtual pixels, percents**
+- Declarative graphics
+  - use SVG format to define graphics in the view XMLs;
+  - bind the view models to SVG content.
+- Getting rid of the AsWing stuff like LookAndFeel, Border, layouts, foreground, background, preferredSize.
+ 
+#### What's done
+The next version is in progress of development. But you can take a look at 
+[the first example of its usage]({% post_url 2016-05-21-heart %}).
+
+#### Conclusion
+Here are our ideas and plans. If you have any advises, suggestions or 
+different ideas about an UI framework, fill free to express them in comments. 
+We'll appreciate it a lot.
+
+Thanks,
+Jive team
