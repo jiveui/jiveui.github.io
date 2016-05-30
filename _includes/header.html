@@ -34,7 +34,11 @@
             </li>
           {% else %}
             <li class="{{active_class}}">
+              {% if item.url %}
+              <a href="{{ item.url }}">{{ item.name }}</a>
+              {% else %}
               <a href="{{site.baseurl}}/{{ item.path }}">{{ item.name }}</a>
+              {% endif %}
             </li>
           {% endif %}
         {% endfor %}

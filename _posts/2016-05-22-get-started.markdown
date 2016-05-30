@@ -62,5 +62,5 @@ haxelib run jive test [ios|android|cpp]
 
 The next step is to create an app using Jive. [Let's create a Heart of Jive application]({% post_url 2016-05-21-heart %}).
 
-[jive]:   https://github.com/jiveui
+[jive]:   https://github.com/jiveui/jive
 [jive-legacy]:   https://github.com/jiveui/jive/tree/master
